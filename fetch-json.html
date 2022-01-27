@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id='store' style="border: 1px solid black; display: inline-block;">{{product}}</div>
+    <script>
+        let store = new Vue({
+            el: '#store',
+            data: {
+                product: [],
+            },
+            created: function () {
+                console.log('requesting data from server ...')
+                
+                fetch('http://localhost:3000/lessons').then(
+                    function (response) {
+                        response.json().then(
+                            function (json) {
+                                // save the returned JSON object to
+                                // 'product' data property
+                                store.product = json;
+                                console.log(json);
+                            });
+                    }
+                )
+            }
+
+        })
+    </script>
+</body>
+</html>
