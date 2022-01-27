@@ -10,7 +10,7 @@ app.get ("/lessons", function(request, response) {
     ]);
 });
 
-app.get ("users", function(request, response) { 
+app.get ("/users", function(request, response) { 
     response.send({'email': 'user@email.com', 'password':'mypassword'});
 });
 
